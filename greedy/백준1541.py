@@ -1,13 +1,10 @@
-#1541
-str = input().split('-')
-print(str)
-#입력받은 문자열을 - 기준으로 쪼개기
-ary = []
-#덧셈이 껴있는 문자열 리스트를 계산해서 정수형 리스트로 변환
-for i in str:
-  lst = i.split('+')
-  sum = 0
-  for i in lst:
-    sum += int(i)
-  ary.append(sum)
-print(ary)
+#어떤 문자열이 들어왔을때, 최소값을 구하기
+arr = input().split('-')
+
+s=0
+for i in arr[0].split('+'):
+  s+=int(i)
+for i in arr[1:]:
+  for j in i.split('+'):
+    s-=int(j)
+print(s)
