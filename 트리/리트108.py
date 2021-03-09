@@ -12,7 +12,6 @@ class Solution:
         return None
       
       mid = len(nums)//2 #딱 중간값
-      print(nums[mid])
       node = TreeNode(nums[mid])
       node.left = self.sortedArrayToBST(nums[:mid])
       node.right = self.sortedArrayToBST(nums[mid+1:])
