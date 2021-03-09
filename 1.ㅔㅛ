@@ -1,0 +1,23 @@
+tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+graph = { c:[] for c in (tickets[i][0] for i in range(len(tickets)))} 
+
+for i in range(len(tickets)):
+  graph[tickets[i][0]].append(tickets[i][1])
+
+for i in range(len(tickets)):
+  graph[tickets[i][0]].sort(reverse=True)
+
+stack = []
+path = []
+def dfs():
+  stack.append("JFK")
+  while stack:
+    p = stack.pop()
+    path.append(p)
+    for i in range(0,len(graph[p])):
+      if graph[p][i] != 'Done':
+        graph[p][i] = 'Done'
+        stack.append(i)
+
+dfs()
+print(path)
